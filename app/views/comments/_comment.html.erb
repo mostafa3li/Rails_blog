@@ -1,0 +1,35 @@
+<%# <table class="articles-table">
+  <tr style="font-size: 20px;">
+    <th>Commenter</th>
+    <th>Comment</th>
+  </tr>
+  <% @article.comments.each do |comment| 
+    <tr>
+        <td><%= comment.commenter </td>
+        <td><%= comment.body </td>
+        <td><%= link_to 'Delete Comment', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' }</td>
+    </tr>
+  <% end 
+<table>
+ %>
+
+<div class="comment">
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+     <%# <%= current_user.email %> 
+  </p>
+  
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+
+  <p>
+    <%= link_to 'Destroy Comment', [comment.article, comment],
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+  </p>
+</div>
